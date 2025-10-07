@@ -18,18 +18,19 @@ $productos = [
   </thead>
   <tbody>
      <?php
-     echo "for" ;
+     echo "while" ;
   // Usa un índice numérico para recorrer las claves.
-    // Permite control total sobre la posición (ideal para
-    // saltar elementos o paginar resultados).
+
     $keys = array_keys($productos);
-     for ($i = 0, $n = count($keys); $i < $n; $i++):
-          $nombre = $keys[$i];
-      $precio = $productos[$nombre]; ?>
-      <tr>
-        <td><?= htmlspecialchars($nombre) ?></td>
-        <td><?= number_format($precio, 2, ',', '.') ?></td>
-      </tr>
-    <?php endfor; ?>
+    $i = 0;
+    $n = count($keys);
+    while($i < $n){
+       $nombre = $keys[$i];
+      $precio = $productos[$nombre]; 
+      echo "<tr><td>". htmlspecialchars($nombre) . "</td><td>"
+              . number_format($precio, 2, ',', '.') . "</td></tr>";
+      $i++;
+    }
+  ?>
   </tbody>
 </table>
