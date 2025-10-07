@@ -18,15 +18,18 @@ $productos = [
   </thead>
   <tbody>
      <?php
-    // Obtiene primero todas las claves del array y luego
-    // accede a los valores usando $productos[$clave].
-    // Útil si solo te interesa recorrer o modificar las claves.
-    foreach (array_keys($productos) as $nombre):
+     echo "for" ;
+  // Usa un índice numérico para recorrer las claves.
+    // Permite control total sobre la posición (ideal para
+    // saltar elementos o paginar resultados).
+    $keys = array_keys($productos);
+     for ($i = 0, $n = count($keys); $i < $n; $i++):
+          $nombre = $keys[$i];
       $precio = $productos[$nombre]; ?>
       <tr>
         <td><?= htmlspecialchars($nombre) ?></td>
         <td><?= number_format($precio, 2, ',', '.') ?></td>
       </tr>
-    <?php endforeach; ?>
+    <?php endfor; ?>
   </tbody>
 </table>
