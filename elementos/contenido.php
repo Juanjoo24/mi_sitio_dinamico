@@ -17,7 +17,12 @@ $productos = [
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($productos as $nombre => $precio): ?>
+     <?php
+    // Obtiene primero todas las claves del array y luego
+    // accede a los valores usando $productos[$clave].
+    // Útil si solo te interesa recorrer o modificar las claves.
+    foreach (array_keys($productos) as $nombre):
+      $precio = $productos[$nombre]; ?>
       <tr>
         <td><?= htmlspecialchars($nombre) ?></td>
         <td><?= number_format($precio, 2, ',', '.') ?></td>
