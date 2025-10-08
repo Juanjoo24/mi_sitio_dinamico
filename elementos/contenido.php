@@ -17,9 +17,11 @@ $productos = [
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($productos as $nombre => $precio){
-     echo "<tr><td>" . htmlspecialchars($nombre). " </td>< td>". number_format($precio, 2, ',', '.') ."</td></tr>";
-    }
- ?>
-     </tbody>
+    <?php foreach ($productos as $nombre => $precio): ?>
+      <tr>
+        <td><?= htmlspecialchars($nombre) ?></td>
+        <td><?= number_format($precio, 2, ',', '.') ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
 </table>
